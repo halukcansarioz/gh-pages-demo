@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="tr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pamukkale</title>
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <style>
+            body {
+                background-image: url('https://i.pinimg.com/originals/04/49/0b/04490bd2be75c09b7fecb502067c62f5.jpg');
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+            }
+
+            .hidden { display: none; }
+            
+            .toggle-btn:hover {
+                background-color: #357ABD;
+            }
+
+            .toggle-btn i {
+                position: absolute; /* İkonları sabit konumda tutmak için */
+                left: 20px; /* İkonun konumu arttırıldı */
+                font-size: 2rem; /* İkon boyutu arttırıldı */
+            }
+
+            .italic {
+                font-style: italic;
+            }
+
+            .animated {
+                animation: slideDown 0.5s forwards;
+            }
+
+            @keyframes slideDown {
+                0% {
+                    max-height: 0;
+                    opacity: 0;
+                    transform: translateY(-20px);
+                }
+                100% {
+                    max-height: 100%;
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .box {
+                border: 1px solid #ccc;
+                border-radius: 8px;
+                padding: 1rem;
+                background-color: #f9f9f9;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                margin: 2rem;
+            }
+
+            .time {
+                color: white;
+                font-size: 1.0rem;
+                margin-top: -2px;
+            }
+
+            h1 {
+                font-family: 'Dancing Script', cursive;
+                font-size: 30px;
+                margin-bottom: 5px;
+            }
+
+            p,li{
+                font-family: 'Dancing Script', cursive;
+                font-size: 15px;
+                margin-bottom: 3px;
+            }
+
+            .header-icons {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .header-icons i {
+                font-size: 25px;
+                cursor: pointer;
+                margin: 0 10px;
+            }
+
+            .header-content {
+                flex-grow: 1;
+                text-align: center;
+            }
+
+            .bg-blue-500 {
+                position: relative;
+                overflow: hidden;
+            }
+
+            .bg-blue-500::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%);
+                z-index: 1;
+                animation: wave 2s linear infinite;
+            }
+
+            @keyframes wave {
+                0% {
+                    transform: translateX(-100%);
+                }
+                100% {
+                    transform: translateX(100%);
+                }
+            }
+
+            .grid-container {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                grid-gap: 20px;
+            }
+
+            .left-image {
+                float: left;
+                width: 25%;
+                padding: 50px;
+            }
+
+            .right-image {
+                float: right;
+                width: 25%; 
+                padding: 50px; 
+            }
+
+            .left-image img,
+            .right-image img{
+                max-width: 70%; 
+                height: auto; 
+                display: block; 
+                border: 2px solid #555; 
+                border-radius: 5px; 
+                box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); 
+                margin: 10px; 
+            }
+
+            .section-wrapper {
+                width: 45%;
+                display: inline-block;
+                vertical-align: top;
+                margin-bottom: 20px; 
+            }
+
+            .toggle-btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #4A90E2;
+                color: white;
+                padding: 45px; 
+                font-size: 1.2rem; 
+                font-weight: bold;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+                font-style: italic;
+                width: 80%; 
+                height: 80px; 
+                position: relative;
+                margin-bottom: 16px; 
+                margin-top:16px;
+            }
+        </style>
+    </head>
+    
+    <body class="bg-gray-100 italic" style="background-image: url('https://i.pinimg.com/originals/04/49/0b/04490bd2be75c09b7fecb502067c62f5.jpg'); background-size: cover; background-repeat: no-repeat; background-attachment: fixed;">
+
+        <header class="bg-blue-500 text-white p-4">
+            <div class="header-icons">
+                <div>
+                    <i class="fas fa-plane"></i>
+                    <i class="fas fa-suitcase-rolling"></i>
+                </div>
+                <div class="header-content">
+                    <h1>Pamukkale</h1>
+                    <p class="mt-2">Türkiye'nin Doğal Güzellikleri ve Tarihi Zenginlikleri</p>
+                    <div id="datetime" class="time mt-2"></div>
+                </div>
+                
+                 <div class="social-icons">
+                    <a href="https://www.instagram.com/halukcansarioz/" class="icon-link"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/halukcansarioz/" class="icon-link"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/halukcansarioz" class="icon-link"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </header>
+
+        <div class="left-image">
+            <img src="https://t4.ftcdn.net/jpg/06/36/85/33/360_F_636853385_sgTCKwq37XfXLgkuUbDpica0LTJWaSC2.jpg" alt="Sol Resim Açıklaması"><br>
+            <img src="https://t4.ftcdn.net/jpg/06/36/85/33/360_F_636853391_ZKsQbLauwQ111ajEdqnVQZlKYtYxPR6D.jpg" alt="Sol Resim Açıklaması"><br>
+            <img src="https://w0.peakpx.com/wallpaper/652/602/HD-wallpaper-pamukkale-turkey-cotton-castle-white-travertine-terraces-pamukkale-deposits-from-hot-springs-turkey.jpg" alt="Sol Resim Açıklaması"><br>
+            <img src="https://www.puzzletravel.com/files/IMG_451_1705478878.jpg" alt="Sol Resim Açıklaması"><br>     
+        </div>
+        <div class="right-image">
+            <img src="https://www.hotelscombined.in/rimg/dimg/a0/00/a85aae14-city-47021-168ede4cd17.jpg?width=1366&height=768&xhint=1604&yhint=1831&crop=true" alt="Sol Resim Açıklaması"><br>
+            <img src="https://cdn.kulturenvanteri.com/wp-content/uploads/2020/08/Denizli-Pamukkale-Travertenleri-scaled.jpg" alt="Sol Resim Açıklaması"><br>
+            <img src="https://i20.haber7.net/resize/1280x720//haber/haber7/photos/2020/15/beyaz_cennet_pamukkale_travertenleri_nasil_olustu_1586161570_7522.jpg" alt="Sol Resim Açıklaması"><br>
+            <img src="https://i.pinimg.com/originals/04/49/0b/04490bd2be75c09b7fecb502067c62f5.jpg" alt="Sol Resim Açıklaması"><br>           
+        </div>
+
+        <main class="max-w-4xl mx-auto p-4">
+            <div class="section-wrapper">
+                <section id="about" class="my-8 text-center">
+                    <div class="flex justify-center">
+                        <button class="toggle-btn" onclick="toggleSection('about-description')"><i class="fas fa-info-circle"></i>Pamukkale</button>
+                    </div>
+                    <div id="about-description" class="box hidden mt-4">
+                        <p>Pamukkale, Türkiye'nin batısında, Denizli ilinde yer alan ve doğal traverten terasları ile ünlü bir doğa harikasıdır. Bu benzersiz doğal yapı, binlerce yıldır yer altı sularının taşıdığı kalsiyum karbonatın birikmesiyle oluşmuştur. Pamukkale, UNESCO Dünya Mirası Listesi'nde yer almakta olup, her yıl binlerce turisti ağırlamaktadır.</p>
+                        <p>Pamukkale'nin beyaz travertenleri, sıcak su kaynaklarının oluşturduğu minerallerin birikmesiyle meydana gelir. Bu kaynaklar, 35 derece sıcaklıkta olup, sağlık turizmi açısından da oldukça önemlidir.</p>
+                    </div>
+                </section>
+            </div>
+            <div class="section-wrapper">
+                <section id="history" class="my-8 text-center">
+                    <div class="flex justify-center">
+                        <button class="toggle-btn" onclick="toggleSection('history-description')"><i class="fas fa-history"></i>Tarihçe</button>
+                    </div>
+                    <div id="history-description" class="box hidden mt-4">
+                        <p>Pamukkale'nin hemen yanında, antik Hierapolis kenti yer almaktadır. Bu şehir, MÖ 2. yüzyılda Bergama Krallığı tarafından kurulmuş ve Roma İmparatorluğu döneminde önemli bir sağlık merkezi olmuştur. Hierapolis, termal kaynaklarıyla ünlü olup, antik çağda birçok insan tedavi için buraya gelmiştir.</p>
+                        <p>Hierapolis'te, antik tiyatro, agora, hamamlar ve Nekropolis gibi önemli yapılar bulunmaktadır. Bu antik kentin kalıntıları, günümüzde de ziyaretçilerin ilgisini çekmektedir.</p>
+                    </div>
+                </section>
+            </div>
+            <div class="section-wrapper">
+                <section id="attractions" class="my-8 text-center">
+                    <div class="flex justify-center">
+                        <button class="toggle-btn" onclick="toggleSection('attractions-description')"><i class="fas fa-map-marker-alt"></i>Gezilecek Yerler</button>
+                    </div>
+                    <div id="attractions-description" class="box hidden mt-4">
+                        <ul class="list-disc list-inside">
+                            <li>Traverten Terasları: Pamukkale'nin en ünlü ve ikonik yapılarıdır. Bu beyaz teraslar, sıcak su kaynaklarının oluşturduğu mineral birikintileri ile meydana gelmiştir.</li>
+                            <li>Hierapolis Antik Kenti: Antik tiyatro, hamamlar ve diğer tarihi yapılarıyla ünlü olan bu antik kent, tarihe meraklı ziyaretçiler için ideal bir yerdir.</li>
+                            <li>Kleopatra Havuzu: Efsanevi Mısır Kraliçesi Kleopatra'nın burada yüzdüğüne inanılan bu termal havuz, ziyaretçilerin ilgisini çeken bir başka önemli noktadır.</li>
+                            <li>Arkeoloji Müzesi: Hierapolis'ten çıkarılan eserlerin sergilendiği bu müze, antik döneme dair pek çok bilgi sunmaktadır.</li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+            <div class="section-wrapper">
+                <section id="visitor-info" class="my-8 text-center">
+                    <div class="flex justify-center">
+                        <button class="toggle-btn" onclick="toggleSection('visitor-info-description')"><i class="fas fa-info-circle"></i>Ziyaretçi Bilgileri</button>
+                    </div>
+                    <div id="visitor-info-description" class="box hidden mt-4">
+                        <p>Açılış saatleri: 08:00 - 20:00</p>
+                        <p>Giriş Ücretleri: 50 TL</p>
+                        <p>Nasıl Gidilir: Denizli şehir merkezinden otobüs veya özel araç ile ulaşılabilir. Ayrıca, Türkiye'nin birçok büyük şehrinden Denizli'ye direkt uçuşlar mevcuttur.</p>
+                        <p>Konaklama: Pamukkale ve çevresinde çeşitli oteller, pansiyonlar ve termal tesisler bulunmaktadır.</p>
+                    </div>
+                </section>
+            </div>
+            <div class="section-wrapper">
+                <section id="health" class="my-8 text-center">
+                    <div class="flex justify-center">
+                        <button class="toggle-btn" onclick="toggleSection('health-description')"><i class="fas fa-heartbeat"></i>Sağlık ve Termal Kaynaklar</button>
+                    </div>
+                    <div id="health-description" class="box hidden mt-4">
+                        <p>Pamukkale, termal suları ve şifalı mineralleriyle sağlık turizmi açısından önemli bir merkezdir. Hierapolis Antik Kenti'nde yer alan termal hamamlar, antik çağlardan beri insanların tedavi amacıyla ziyaret ettiği yerler arasındadır.</p>
+                        <p>Termal suların içerdiği mineraller, romatizmal hastalıklar, cilt rahatsızlıkları ve kas-iskelet sistemi sorunlarına iyi gelmektedir. Pamukkale'de bulunan modern termal tesisler, bu şifalı suları kullanarak çeşitli tedavi ve terapi hizmetleri sunmaktadır.</p>
+                    </div>
+                </section>
+            </div>
+            <div class="section-wrapper">
+                <section id="events" class="my-8 text-center">
+                    <div class="flex justify-center">
+                        <button class="toggle-btn" onclick="toggleSection('events-description')"><i class="fas fa-calendar-alt"></i>Etkinlikler Festivaller</button>
+                    </div>
+                    <div id="events-description" class="box hidden mt-4">
+                        <p>Pamukkale, yıl boyunca çeşitli etkinliklere ve festivallere ev sahipliği yapmaktadır. Özellikle yaz aylarında düzenlenen kültürel ve sanatsal etkinlikler, bölgeyi ziyaret eden turistler için keyifli anlar sunmaktadır.</p>
+                        <p>Hierapolis Antik Tiyatrosu'nda gerçekleştirilen konserler ve tiyatro gösterileri, antik atmosferde unutulmaz deneyimler yaşatmaktadır. Ayrıca, Pamukkale Festivali gibi etkinlikler, bölgenin kültürel zenginliklerini tanıtmakta ve ziyaretçilerin ilgisini çekmektedir.</p>
+                    </div>
+                </section>
+            </div>
+            <div class="section-wrapper">
+                <section id="food" class="my-8 text-center">
+                    <div class="flex justify-center">
+                        <button class="toggle-btn" onclick="toggleSection('food-description')"><i class="fas fa-utensils"></i>Yeme İçme</button>
+                    </div>
+                    <div id="food-description" class="box hidden mt-4">
+                        <p>Pamukkale ve çevresinde yeme içme konusunda birçok seçenek bulunmaktadır. Bölgedeki restoranlar, Türk mutfağının lezzetli yemeklerini sunmaktadır. Yerel lezzetler arasında kebaplar, mezeler ve tatlılar öne çıkmaktadır.</p>
+                        <p>Ayrıca, Pamukkale'nin çevresindeki üzüm bağları ve şarap üretim tesisleri, ziyaretçilere farklı tatlar sunmaktadır. Bu tesislerde yerel şarapları tatma ve üretim sürecini görme imkanı bulunmaktadır.</p>
+                    </div>
+                </section>
+            </div>
+            <div class="section-wrapper">    
+                <section id="gallery" class="my-8 text-center">
+                    <div class="flex justify-center">
+                        <button class="toggle-btn" onclick="toggleSection('gallery-description')"><i class="fas fa-images"></i>Galeri</button>
+                    </div>
+                    <div id="gallery-description" class="box hidden mt-4">
+                        <p>Pamukkale'nin muhteşem manzaralarını ve tarihi mekanlarını keşfetmek için galerimizi ziyaret edin. Beyaz travertenler, antik kent kalıntıları ve doğal güzelliklerin fotoğrafları, bu bölgenin büyüleyici atmosferini gözler önüne sermektedir.</p>
+                        <p>Galerimizde, Pamukkale'nin farklı mevsimlerde çekilmiş fotoğraflarını bulabilirsiniz. Her mevsimde farklı bir güzelliğe bürünen Pamukkale, her ziyaretçisine unutulmaz anılar sunmaktadır.</p>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <footer class="bg-gray-800 text-white p-4 text-center">
+            <p>&copy; 2024 Pamukkale. Haluk Can Sarıöz</p>
+        </footer>
+
+        <script>
+            function toggleSection(id) {
+                const sections = document.querySelectorAll('div[id$="-description"]');
+                sections.forEach(section => {
+                    if (section.id !== id) {
+                        section.classList.add('hidden');
+                        section.classList.remove('animated');
+                    }
+                });
+                const selectedSection = document.getElementById(id);
+                if (selectedSection.classList.contains('hidden')) {
+                    selectedSection.classList.remove('hidden');
+                    selectedSection.classList.add('animated');
+                } else {
+                    selectedSection.classList.add('hidden');
+                    selectedSection.classList.remove('animated');
+                }
+            }
+
+            function sendMessage(event) {
+                event.preventDefault();
+                
+                const form = document.getElementById('contact-form');
+                const formData = new FormData(form);
+
+                fetch('/your-server-endpoint', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Bir hata oluştu. Lütfen tekrar deneyin.');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    showSuccessMessage('Mesajınız başarıyla gönderildi.');
+                    form.reset();
+                })
+                .catch(error => {
+                    showErrorMessage(error.message);
+                });
+            }
+
+            function showSuccessMessage(message) {
+                const messageContainer = document.getElementById('message-container');
+                messageContainer.className = 'bg-green-500 text-white p-2 rounded-lg my-4';
+                messageContainer.textContent = message;
+                messageContainer.classList.remove('hidden');
+                
+                setTimeout(() => {
+                    messageContainer.classList.add('hidden');
+                }, 5000); // 5 seconds
+            }
+
+            function showErrorMessage(message) {
+                const messageContainer = document.getElementById('message-container');
+                messageContainer.className = 'bg-red-500 text-white p-2 rounded-lg my-4';
+                messageContainer.textContent = message;
+                messageContainer.classList.remove('hidden');
+                
+                setTimeout(() => {
+                    messageContainer.classList.add('hidden');
+                }, 5000); // 5 seconds
+            }
+
+            
+            function updateTime() {
+                const now = new Date();
+                const options = { weekday: 'long', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
+                const formattedDate = now.toLocaleDateString('tr-TR', options);
+                document.getElementById('datetime').textContent = formattedDate;
+            }
+
+            // Initial call
+            updateTime();
+
+            // Update time every second
+            setInterval(updateTime, 1000);
+        </script>
+
+    </body>
+</html> 
