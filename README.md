@@ -114,6 +114,7 @@ git push origin ozellik/yeni-tasarim
 
 ---
 
+<a name="iletişim"></a>
 ## İletişim
 **Haluk Can Sarıöz** - [GitHub Profilim](https://github.com/halukcansarioz)  
 **Proje Linki:** [https://github.com/halukcansarioz/gh-pages-demo](https://github.com/halukcansarioz/gh-pages-demo)
@@ -123,3 +124,5 @@ git push origin ozellik/yeni-tasarim
 ## Lisans
 Bu proje [MIT Lisansı](LICENSE) ile lisanslanmıştır.
 ```
+
+Bu hâliyle, İçindekiler kısmındaki **İletişim** bağlantısı sorunsuz çalışacak ve iletişim bilgileri düzgün görüntülenecektir. Başka bir düzenleme isteğiniz olursa çekinmeden iletebilirsiniz.
